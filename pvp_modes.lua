@@ -1,3 +1,7 @@
+pvpRooms = 0
+maximumRooms = 65534
+pvpTable = {}
+
 -- Name of the arena, interior id, player 1&2 coords (x,y,z) & vehicles if listed
 pvpList = {
 	["1v1 Combat Fight: Battlefield"] = {
