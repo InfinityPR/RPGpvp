@@ -1,4 +1,4 @@
-function openPVPFunction()
+local function openPVPFunction()
 	if isElement(pvpGUI) then
 		return closePVPFunction();
 	else
@@ -43,7 +43,7 @@ addEventHandler("saespvp.openGUI", localPlayer, openPVPFunction)
 
 function onClickPVPGUI()
 	if not isElement(pvpGUI) then
-		return;
+		return
 	end
 	if source == requestButton then
 		if guiGridListGetSelectedCount(playerList) == 1 then
@@ -72,7 +72,7 @@ end
 
 function onPVPGUIChange()
 	if not isElement(pvpGUI) then
-		return;
+		return
 	end
 	guiGridListClear(playerList)
 	local text = guiGetText(source)
@@ -89,7 +89,7 @@ end
 
 function closePVPFunction()
 	if not isElement(pvpGUI) then
-		return;
+		return
 	end
 	showCursor(false)
 	removeEventHandler("onClientGUIClick", guiRoot, onClickPVPGUI)
