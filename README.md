@@ -6,4 +6,4 @@ Players are able to create their own private arena to go versus each other. The 
 
 <img width="488" height="330" alt="image" src="https://github.com/user-attachments/assets/9d508eb7-497c-4d1d-9234-66b0190f7cd4" />
 
-Upon typing /pvp you will be prompted with the image above.
+Upon typing /pvp you will be prompted with the image above. You can choose an online player and select your gamemode.
