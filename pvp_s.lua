@@ -1,7 +1,3 @@
-local pvpRooms = 0
-local maximumRooms = 65534
-pvpTable = {}
-
 function createPVPArena(player, againstWho, theMode)
 	if not isElement(player) then
 		return
