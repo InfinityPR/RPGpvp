@@ -1,6 +1,6 @@
 function isPlayerPVP(player)
 	if pvpTable[player] then
-		return true;
+		return true
 	end
 end
 
