@@ -1,4 +1,7 @@
-function togglePVPClientAction(action, state)
+local shootTimer
+local jumpTimer
+
+local function togglePVPClientAction(action, state)
 	if action == "vehiclejump" then
 		if state then
 			bindKey("lshift", "down", actionPVPVehicleJump)
@@ -24,7 +27,7 @@ end
 
 function actionPVPVehicleJump()
 	if not isPedInVehicle(localPlayer) then 
-		return;
+		return
 	end
 	if isTimer(jumpTimer) then
 		return
@@ -39,7 +42,7 @@ end
 
 function actionPVPVehicleShooter()
 	if not isPedInVehicle(localPlayer) then 
-		return;
+		return
 	end
 	if isTimer(shootTimer) then
 		return
