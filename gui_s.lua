@@ -1,6 +1,6 @@
 local pvpRequest = {}
 
-function openPVP(player)
+local function openPVP(player)
 	if getPlayerIdleTime(player) < 1000 then
 		outputMessage("You cannot be in motion to be able to open this panel!", player, 255, 0, 0, false)
 		return
@@ -13,7 +13,21 @@ function openPVP(player)
 end
 addCommandHandler("pvp", openPVP)
 
-function clientRequestedPVP(againstWho, theMode)
+local function cancelPVPRequest(player, againstWho)
+	if not isElement(player) then
+		return
+	end
+	if not isElement(againstWho) then
+		return
+	end
+	pvpRequest[player] = nil
+	if pvpRequest[againstWho] then
+		pvpRequest[againstWho] = nil
+		outputMessage("The PVP request has been cancelled", againstWho, 255, 0, 0)
+	end
+end
+
+local function clientRequestedPVP(againstWho, theMode)
 	if not isElement(client) then
 		return
 	end
@@ -39,21 +53,7 @@ end
 addEvent("saespvp.requestMode", true)
 addEventHandler("saespvp.requestMode", resourceRoot, clientRequestedPVP)
 
-function cancelPVPRequest(player, againstWho)
-	if not isElement(player) then
-		return
-	end
-	if not isElement(againstWho) then
-		return
-	end
-	pvpRequest[player] = nil
-	if pvpRequest[againstWho] then
-		pvpRequest[againstWho] = nil
-		outputMessage("The PVP request has been cancelled", againstWho, 255, 0, 0)
-	end
-end
-
-function acceptPVPRequest(player)
+local function acceptPVPRequest(player)
 	if not pvpRequest[player] then
 		return
 	end
